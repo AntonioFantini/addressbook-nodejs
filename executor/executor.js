@@ -43,7 +43,7 @@ function sortByName(people){
 				array.push(person);
 	}
 	array.sort(function(a,b){
-	var c = a.name.;
+	var c = a.name;
 	var d = b.name;
 	if (a < b) //sort string ascending
       return -1;
