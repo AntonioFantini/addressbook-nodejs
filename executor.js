@@ -5,7 +5,7 @@ global.operationOldest='OLDEST',
 module.exports = {
 	execute: function(operation){
 		var people = JSON.parse(fs.readFileSync('AddressBook.json','utf8'));
-		if(operation === operationOldest){
+		if(operation == operationOldest){
 			console.log(operationOldest);
 		}else{
 			for (var i=0; i< people.length; i++){
