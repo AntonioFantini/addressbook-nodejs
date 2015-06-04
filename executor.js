@@ -3,7 +3,7 @@ var personFactory = require('./person.js');
 global.operationOldest='OLDEST';
 module.exports = {
 	execute: function(operation){
-		var people = JSON.parse(fs.readFileSync('AddressBook.json','utf8'));
+		var people = JSON.parse(fs.readFileSync('resources/AddressBook.json','utf8'));
 		if(operation == global.operationOldest){
 			var elaborated = sortPeopleByDate(people);
 			return elaborated;			
