@@ -1,22 +1,22 @@
-var fs = require('fs');
-var personFactory = require('./person.js');
+var extractor = require('./../persistence/persistence.js');
+
 global.operationOldest='OLDEST';
 module.exports = {
 	execute: function(operation){
-		var people = JSON.parse(fs.readFileSync('resources/AddressBook.json','utf8'));
+		var people = extractor.getPeople();
 		if(operation == global.operationOldest){
 			var elaborated = sortPeopleByDate(people);
 			return elaborated;			
 		}else{
 			for (var i=0; i< people.length; i++){
-				var person = personFactory.createPerson(people[i].name, people[i].sex, people[i].dob);
+				var person = people[i];
 				person.print();
 			}
 		}
 	},
 	printOutput: function(people){
 		for (var i=0; i< people.length; i++){
-				var person = personFactory.createPerson(people[i].name, people[i].sex, people[i].dob);
+				var person = people[i];
 				person.print();
 		}
 	}
@@ -26,7 +26,7 @@ module.exports = {
 function sortPeopleByDate(people){
 	var array = [];
 	for (var i=0; i< people.length; i++){
-				var person = personFactory.createPerson(people[i].name, people[i].sex, people[i].dob);
+				var person = people[i];
 				array.push(person);
 	}
 	array.sort(function(a,b){

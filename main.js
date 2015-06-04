@@ -1,4 +1,4 @@
-var executor = require('./executor.js');
+var executor = require('./executor/executor.js');
 var utils = require('./utils/addressbook_utils');
 var arg = process.argv[2];
 if(utils.checkEmpty(arg)){
