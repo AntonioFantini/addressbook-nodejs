@@ -1,10 +1,9 @@
 var extractor = require('./../persistence/persistence.js');
-
-global.operationOldest='OLDEST';
+var operations = require('./operations.js');
 module.exports = {
 	execute: function(operation){
 		var people = extractor.getPeople();
-		if(operation == global.operationOldest){
+		if(operation == operations.operationOldest){
 			var elaborated = sortPeopleByDate(people);
 			return elaborated;			
 		}else{
@@ -33,6 +32,25 @@ function sortPeopleByDate(people){
 	var c = a.dob.getTime();
 	var d = b.dob.getTime();
 	return c-d;
+	});
+	return array;
+}
+
+function sortByName(people){
+	var array = [];
+	for (var i=0; i< people.length; i++){
+				var person = people[i];
+				array.push(person);
+	}
+	array.sort(function(a,b){
+	var c = a.name.;
+	var d = b.name;
+	if (a < b) //sort string ascending
+      return -1;
+    if (a > b)
+      return 1;
+ return 0; //default return value (no sorting)
+
 	});
 	return array;
 }
