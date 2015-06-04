@@ -7,6 +7,9 @@ module.exports = {
 		return false;
 	},
 	convertStringToDate : function (date){
+		if(date instanceof Date){
+			return date;
+		}
 		var parts;
 		if(date.indexOf('/') > -1){
 			parts =date.split('/');
