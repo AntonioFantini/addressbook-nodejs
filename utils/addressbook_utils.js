@@ -30,5 +30,8 @@ module.exports = {
             month = '0'+ month;
         }
         return date.getDate()+ '/' + month +'/' + date.getFullYear();
+    },
+    notifyOnConsole: function(message){
+        console.info(message);
     }
 }

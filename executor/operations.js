@@ -1,4 +1,6 @@
 module.exports = {
- operationOldest:'OLDEST'
+ operationOldest:'OLDEST',
+ operationSex: 'SEX',
+ operationName: 'NAME'
     
 }

@@ -4,13 +4,10 @@ module.exports = {
 	execute: function(operation){
 		var people = extractor.getPeople();
 		if(operation == operations.operationOldest){
-			var elaborated = sortPeopleByDate(people);
-			return elaborated;			
+			return sortPeopleByDate(people);
+			
 		}else{
-			for (var i=0; i< people.length; i++){
-				var person = people[i];
-				person.print();
-			}
+			return sortPeopleAlphabetically(people, operation==operations.operationSex);
 		}
 	},
 	printOutput: function(people){
@@ -36,20 +33,28 @@ function sortPeopleByDate(people){
 	return array;
 }
 
-function sortByName(people){
+function sortPeopleAlphabetically(people, sexFlag){
 	var array = [];
 	for (var i=0; i< people.length; i++){
 				var person = people[i];
 				array.push(person);
 	}
 	array.sort(function(a,b){
-	var c = a.name;
-	var d = b.name;
-	if (a < b) //sort string ascending
+	var c = null;
+	var d = null;
+    if(sexFlag){
+        c = a.sex;
+        d = b.sex;
+    }else{
+        c = a.name;
+        d = b.name;
+    }
+        
+	if (c < d) //sort string ascending
       return -1;
-    if (a > b)
+    if (c > d)
       return 1;
- return 0; //default return value (no sorting)
+    return 0; //default return value (no sorting)
 
 	});
 	return array;
